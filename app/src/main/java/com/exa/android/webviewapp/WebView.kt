@@ -26,9 +26,9 @@ fun WebViewScreen(
     BackHandler(enabled = canGoBack) { // Handling back press in WebView
         webView.value?.let { webViewInstance ->
             if (webViewInstance.canGoBack()) {
-                webViewInstance.goBack() // Navigate back in WebView
+                webViewInstance.goBack()
             } else {
-                onBackPressed() // Perform the action when WebView cannot go back
+                onBackPressed()
             }
         }
     }
@@ -41,7 +41,7 @@ fun WebViewScreen(
                         view: WebView?,
                         request: WebResourceRequest?
                     ): Boolean {
-                        return false // Let WebView handle the URL
+                        return false
                     }
                 }
                 webChromeClient = WebChromeClient()
@@ -51,8 +51,8 @@ fun WebViewScreen(
             }
         },
         update = { view ->
-            webView.value = view // Update WebView reference
-            canGoBack = view.canGoBack() // Update back navigation state
+            webView.value = view
+            canGoBack = view.canGoBack()
         }
     )
 }
